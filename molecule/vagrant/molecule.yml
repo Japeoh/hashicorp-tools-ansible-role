@@ -1,0 +1,31 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: fedora
+    image: docker.io/pycontribs/fedora:latest
+    volumes:
+      - /dev/fuse:/dev/fuse:rw
+    capabilities:
+      - SYS_ADMIN
+    pre_build_image: true
+  - name: centos7
+    image: docker.io/pycontribs/centos:7
+    volumes:
+      - /dev/fuse:/dev/fuse:rw
+    capabilities:
+      - SYS_ADMIN
+    pre_build_image: true
+  - name: centos8
+    image: docker.io/pycontribs/centos:8
+    volumes:
+      - /dev/fuse:/dev/fuse:rw
+    capabilities:
+      - SYS_ADMIN
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

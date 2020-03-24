@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    hashicorp_tools_terraform: yes
+    hashicorp_tools_packer: yes
+    hashicorp_tools_consul: yes
+    hashicorp_tools_vault: yes
+    hashicorp_tools_nomad: yes
+
+  roles:
+    - japeoh.hashicorp_tools

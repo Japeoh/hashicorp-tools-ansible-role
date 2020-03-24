@@ -1,0 +1,35 @@
+---
+
+- name: "Create {{ tool }} directory"
+  file:
+    path: "{{ tool_download_dir }}"
+    state: directory
+
+- name: "Download {{ tool }}"
+  get_url:
+    url: "{{ tool_url }}"
+    dest: "{{ tool_download_dir }}"
+    checksum: "{{ tool_checksum }}"
+
+- name: "Unzip {{ tool }}"
+  unarchive:
+    src: "{{ tool_download_dir }}/{{ tool_zip }}"
+    dest: "{{ tool_download_dir }}"
+    remote_src: yes
+    creates: "{{ tool_binary }}"
+
+- name: "Install {{ tool }}"
+  file:
+    src: "{{ tool_binary }}"
+    dest: "{{ hashicorp_tools_install_dir }}/{{ tool }}"
+    state: link
+    force: yes
+
+- name: "Execute {{ tool }} version"
+  command: "{{ hashicorp_tools_install_dir }}/{{ tool }} version"
+  register: version
+  changed_when: false
+
+- name: "Validate correct {{ tool }} version installed"
+  assert:
+    that: tool_version in version.stdout

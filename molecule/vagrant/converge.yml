@@ -1,0 +1,22 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    hashicorp_tools_vagrant: yes
+
+  pre_tasks:
+    - name: Install fedora or centos 8+ prerequisites
+      yum:
+        name: fuse-libs
+        state: present
+      when: (ansible_distribution == "Fedora") or
+            (ansible_distribution == "CentOS" and ansible_distribution_major_version > '7')
+
+    - name: Install centos 7 prerequisites
+      yum:
+        name: fuse-sshfs
+        state: present
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == '7'
+
+  roles:
+    - japeoh.hashicorp_tools

@@ -1,0 +1,34 @@
+---
+# vars file for japeoh.hashicorp_tools
+
+hashicorp_tools_base_url: https://releases.hashicorp.com
+
+hashicorp_tools_consul_zip: consul_{{ hashicorp_tools_consul_version }}_linux_amd64.zip
+hashicorp_tools_consul_url: "{{ hashicorp_tools_base_url }}/consul/{{ hashicorp_tools_consul_version }}/{{ hashicorp_tools_consul_zip }}"
+hashicorp_tools_consul_download_dir: "{{ hashicorp_tools_base_dir }}/consul-{{ hashicorp_tools_consul_version }}"
+hashicorp_tools_consul_binary: "{{ hashicorp_tools_consul_download_dir }}/consul"
+
+hashicorp_tools_nomad_zip: nomad_{{ hashicorp_tools_nomad_version }}_linux_amd64.zip
+hashicorp_tools_nomad_url: "{{ hashicorp_tools_base_url }}/nomad/{{ hashicorp_tools_nomad_version }}/{{ hashicorp_tools_nomad_zip }}"
+hashicorp_tools_nomad_download_dir: "{{ hashicorp_tools_base_dir }}/nomad-{{ hashicorp_tools_nomad_version }}"
+hashicorp_tools_nomad_binary: "{{ hashicorp_tools_nomad_download_dir }}/nomad"
+
+hashicorp_tools_packer_zip: packer_{{ hashicorp_tools_packer_version }}_linux_amd64.zip
+hashicorp_tools_packer_url: "{{ hashicorp_tools_base_url }}/packer/{{ hashicorp_tools_packer_version }}/{{ hashicorp_tools_packer_zip }}"
+hashicorp_tools_packer_download_dir: "{{ hashicorp_tools_base_dir }}/packer-{{ hashicorp_tools_packer_version }}"
+hashicorp_tools_packer_binary: "{{ hashicorp_tools_packer_download_dir }}/packer"
+
+hashicorp_tools_terraform_zip: terraform_{{ hashicorp_tools_terraform_version }}_linux_amd64.zip
+hashicorp_tools_terraform_url: "{{ hashicorp_tools_base_url }}/terraform/{{ hashicorp_tools_terraform_version }}/{{ hashicorp_tools_terraform_zip }}"
+hashicorp_tools_terraform_download_dir: "{{ hashicorp_tools_base_dir }}/terraform-{{ hashicorp_tools_terraform_version }}"
+hashicorp_tools_terraform_binary: "{{ hashicorp_tools_terraform_download_dir }}/terraform"
+
+hashicorp_tools_vagrant_zip: vagrant_{{ hashicorp_tools_vagrant_version }}_linux_amd64.zip
+hashicorp_tools_vagrant_url: "{{ hashicorp_tools_base_url }}/vagrant/{{ hashicorp_tools_vagrant_version }}/{{ hashicorp_tools_vagrant_zip }}"
+hashicorp_tools_vagrant_download_dir: "{{ hashicorp_tools_base_dir }}/vagrant-{{ hashicorp_tools_vagrant_version }}"
+hashicorp_tools_vagrant_binary: "{{ hashicorp_tools_vagrant_download_dir }}/vagrant"
+
+hashicorp_tools_vault_zip: vault_{{ hashicorp_tools_vault_version }}_linux_amd64.zip
+hashicorp_tools_vault_url: "{{ hashicorp_tools_base_url }}/vault/{{ hashicorp_tools_vault_version }}/{{ hashicorp_tools_vault_zip }}"
+hashicorp_tools_vault_download_dir: "{{ hashicorp_tools_base_dir }}/vault-{{ hashicorp_tools_vault_version }}"
+hashicorp_tools_vault_binary: "{{ hashicorp_tools_vault_download_dir }}/vault"

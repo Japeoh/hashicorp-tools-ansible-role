@@ -1,0 +1,84 @@
+---
+# tasks file for japeoh.hashicorp_tools
+
+- name: Create directorys
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+  - "{{ hashicorp_tools_base_dir }}"
+  - "{{ hashicorp_tools_install_dir }}"
+
+- name: Install prerequisites
+  yum:
+    name:
+      - unzip
+    state: present
+    update_cache: yes
+  become: yes
+
+- import_tasks: install.yml
+  vars:
+    - tool: consul
+    - tool_version: "{{ hashicorp_tools_consul_version }}"
+    - tool_url: "{{ hashicorp_tools_consul_url }}"
+    - tool_checksum: "{{ hashicorp_tools_consul_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_consul_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_consul_zip }}"
+    - tool_binary: "{{ hashicorp_tools_consul_binary }}"
+  when: hashicorp_tools_consul
+
+- import_tasks: install.yml
+  vars:
+    - tool: nomad
+    - tool_version: "{{ hashicorp_tools_nomad_version }}"
+    - tool_url: "{{ hashicorp_tools_nomad_url }}"
+    - tool_checksum: "{{ hashicorp_tools_nomad_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_nomad_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_nomad_zip }}"
+    - tool_binary: "{{ hashicorp_tools_nomad_binary }}"
+  when: hashicorp_tools_nomad
+
+- import_tasks: install.yml
+  vars:
+    - tool: packer
+    - tool_version: "{{ hashicorp_tools_packer_version }}"
+    - tool_url: "{{ hashicorp_tools_packer_url }}"
+    - tool_checksum: "{{ hashicorp_tools_packer_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_packer_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_packer_zip }}"
+    - tool_binary: "{{ hashicorp_tools_packer_binary }}"
+  when: hashicorp_tools_packer
+
+- import_tasks: install.yml
+  vars:
+    - tool: terraform
+    - tool_version: "{{ hashicorp_tools_terraform_version }}"
+    - tool_url: "{{ hashicorp_tools_terraform_url }}"
+    - tool_checksum: "{{ hashicorp_tools_terraform_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_terraform_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_terraform_zip }}"
+    - tool_binary: "{{ hashicorp_tools_terraform_binary }}"
+  when: hashicorp_tools_terraform
+
+- import_tasks: install.yml
+  vars:
+    - tool: vagrant
+    - tool_version: "{{ hashicorp_tools_vagrant_version }}"
+    - tool_url: "{{ hashicorp_tools_vagrant_url }}"
+    - tool_checksum: "{{ hashicorp_tools_vagrant_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_vagrant_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_vagrant_zip }}"
+    - tool_binary: "{{ hashicorp_tools_vagrant_binary }}"
+  when: hashicorp_tools_vagrant
+
+- import_tasks: install.yml
+  vars:
+    - tool: vault
+    - tool_version: "{{ hashicorp_tools_vault_version }}"
+    - tool_url: "{{ hashicorp_tools_vault_url }}"
+    - tool_checksum: "{{ hashicorp_tools_vault_checksum }}"
+    - tool_download_dir: "{{ hashicorp_tools_vault_download_dir }}"
+    - tool_zip: "{{ hashicorp_tools_vault_zip }}"
+    - tool_binary: "{{ hashicorp_tools_vault_binary }}"
+  when: hashicorp_tools_vault

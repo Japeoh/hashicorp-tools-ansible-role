@@ -1,0 +1,25 @@
+---
+
+galaxy_info:
+  author: Ric Featherstone
+  description: Used to install Hashicorp tools
+  company: Japeoh Ltd
+  license: license (GPLv3)
+  min_ansible_version: 2.9
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - hashicorp
+    - vagrant
+    - packer
+    - terraform
+    - consul
+    - vault
+    - nomad
+
+dependencies: []
