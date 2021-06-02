@@ -58,7 +58,7 @@ six==1.14.0
 tabulate==0.8.7
 toml==0.10.0
 tree-format==0.1.2
-urllib3==1.25.8
+urllib3==1.26.5
 varlink==30.3.0
 virtualenv==20.0.14
 whichcraft==0.6.1
